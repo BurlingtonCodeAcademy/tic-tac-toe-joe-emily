@@ -4,6 +4,15 @@
 h1{
     text-align: center
 }
+h2{
+    text-align: center;
+}
+#playerTurn{
+    margin: auto;
+    width: 200px;
+    height: 100px;
+    background-color: lightgrey;
+}
 
 #top{
     display: flex;
