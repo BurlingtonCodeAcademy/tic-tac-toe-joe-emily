@@ -1,0 +1,73 @@
+
+/* Game Board */
+
+h1{
+    text-align: center
+}
+
+#top{
+    display: flex;
+    width: 90vw;
+  
+}
+
+#middle{
+    display: flex;
+    width: 90vw;
+    
+}
+
+#bottom{
+    display: flex;
+    width: 90vw;
+   
+}
+
+.cell{
+    min-width: 30vw;
+    height: 20vh;
+}
+
+#cellone{
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+
+#celltwo{
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+  
+}
+
+#cellthree{
+    border-bottom: 1px solid black;
+}
+
+#cellfour{
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+
+#cellfive {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+
+#cellsix{
+    border-bottom: 1px solid black;
+}
+
+#cellseven{
+    border-right: 1px solid black;
+}
+
+#celleight{
+    border-right: 1px solid black;
+}
+
+#buttonContainer{
+    width: 10%;
+    margin-left: 40%;
+    margin-right: 45%;
+    padding: 20px;
+}
