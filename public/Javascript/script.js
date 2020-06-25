@@ -9,6 +9,7 @@ let interval;
 let clockCount = 0;
 let moveCounter = 0;
 
+
 //Elements that need to be targeted
 let start = document.getElementById("start");
 let cells = Array.from(document.getElementsByClassName("cell"));
@@ -130,6 +131,7 @@ function checkWin() {
 
 //A win has been satisfied. Alerts the game status area and resets the board
 function gameSatisfied() {
+  winner = true;
   statusArea.textContent = playerTurn + " has won! Play again?";
   boardReset();
 }
@@ -153,14 +155,14 @@ function clicked(event) {
   event.target.textContent = playerTurn;
   event.target.removeEventListener("click", clicked);
   event.target.addEventListener("click", clickedBefore);
-  
-  if (playerTurn === playerOne) {
-    playerTurn = playerTwo;
-  } else playerTurn = playerOne;
-  displayStatusArea();
-  moves();
-  
+ 
+    if (playerTurn === playerOne) {
+      playerTurn = playerTwo;
+    } else playerTurn = playerOne;
+    displayStatusArea();
+    moves();
 }
+
 
 //Function to alert the user that they have selected the cell before
 function clickedBefore() {
