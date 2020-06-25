@@ -22,8 +22,6 @@ start.addEventListener("click", () => {
   interval= setInterval(()=>{updateClock()}, 1000)
   cells.forEach((cell) => {
     cell.addEventListener("click", clicked);
-//Set interval, clear at the end of the game
-
   });
 });
 
