@@ -131,7 +131,9 @@ function checkWin() {
 
 //A win has been satisfied. Alerts the game status area and resets the board
 function gameSatisfied() {
-  winner = true;
+  if (playerTurn===playerOne){
+    playerTurn = playerTwo
+  }else playerTurn =playerOne;
   statusArea.textContent = playerTurn + " has won! Play again?";
   boardReset();
 }
