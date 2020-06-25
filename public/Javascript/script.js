@@ -3,8 +3,6 @@
 let playerOne = "X";
 let playerTwo = "O";
 let playerTurn = playerOne;
-let start = document.getElementById("start");
-let cells = Array.from(document.getElementsByClassName("cell"));
 let wins = [
   [0, 1, 2],
   [3, 4, 5],
@@ -16,12 +14,16 @@ let wins = [
   [2, 4, 9]
 ];
 let boardState = [false, false, false, false, false, false, false, false, false];
+let interval;
+let clockCount = 0;
+
+
+//Elements that need to be targeted
+let start = document.getElementById("start");
+let cells = Array.from(document.getElementsByClassName("cell"));
 let playerOneName = document.getElementById("playerOne");
 let playerTwoName = document.getElementById("playerTwo");
-let clockCount = 0;
 let clock = document.getElementById("clock")
-let interval;
-
 
 
 //Function to begin the game
@@ -47,8 +49,10 @@ function clicked(event) {
   } else playerTurn = playerOne;
   displayStatusArea();
 
+
 }
 
+//Function to alert the user that they have selected the cell before
 function clickedBefore() {
   statusArea.textContent = "Please select an empty cell";
 }
@@ -69,11 +73,11 @@ function updateClock() {
 function boardReset() {
   cells.forEach((cell) => {
     cell.removeEventListener('click', clicked)
-    cell.removeEventListener('click', alreadyCLicked)
+    cell.removeEventListener('click', clickedBefore)
   })
 
   boardState = [false, false, false, false, false, false, false, false, false]
 
   start.disabled = false;
   start.textContent = 'Play Again!'
-}
+} 
