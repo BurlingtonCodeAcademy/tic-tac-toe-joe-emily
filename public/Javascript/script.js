@@ -16,7 +16,7 @@ let wins = [
 let boardState = [false, false, false, false, false, false, false, false, false];
 let interval;
 let clockCount = 0;
-
+let moveCounter = 0;
 
 //Elements that need to be targeted
 let start = document.getElementById("start");
@@ -25,61 +25,67 @@ let playerOneName = document.getElementById("playerOne");
 let playerTwoName = document.getElementById("playerTwo");
 let clock = document.getElementById("clock")
 
+// Need to check cells of player X and Player O and the Amount of moves to determine winner 
 
-//Function to begin the game
-start.addEventListener("click", () => {
+//Need a function to count the moves of the players if 8 moves are counted and there is no winner, game results in a draw would need to add the count to an empty string to convert to an array
+function moves() {
+  for (i = 0; i < 8; i++) {
+    moveCounter += 1;
+    console.log(moveCounter);
+  }
+}
+  //Function to begin the game
+  start.addEventListener("click", () => {
 
-  start.disabled = true;
-  displayStatusArea();
-  interval = setInterval(() => {
-    updateClock()
-  }, 1000)
-  cells.forEach((cell) => {
-    cell.addEventListener("click", clicked);
+    start.disabled = true;
+    displayStatusArea();
+    interval = setInterval(() => {
+      updateClock()
+    }, 1000)
+    cells.forEach((cell) => {
+      cell.addEventListener("click", clicked);
+    });
   });
-});
 
-//Function to add a mark to a cell when clicked
-function clicked(event) {
-  event.target.textContent = playerTurn;
-  event.target.removeEventListener("click", clicked);
-  event.target.addEventListener("click", clickedBefore)
-  if (playerTurn === playerOne) {
-    playerTurn = playerTwo;
-  } else playerTurn = playerOne;
-  displayStatusArea();
+  //Function to add a mark to a cell when clicked
+  function clicked(event) {
+    event.target.textContent = playerTurn;
+    event.target.removeEventListener("click", clicked);
+    event.target.addEventListener("click", clickedBefore)
+    if (playerTurn === playerOne) {
+      playerTurn = playerTwo;
+    } else playerTurn = playerOne;
+    displayStatusArea();
+    moves() 
 
+  }
 
-}
+  //Function to alert the user that they have selected the cell before
+  function clickedBefore() {
+    statusArea.textContent = "Please select an empty cell";
+  }
 
-//Function to alert the user that they have selected the cell before
-function clickedBefore() {
-  statusArea.textContent = "Please select an empty cell";
-}
+  //Function to display status area
+  function displayStatusArea() {
+    let statusArea = document.getElementById("statusArea");
+    statusArea.textContent = "It is " + playerTurn + "'s turn!";
+  }
 
-//Function to display status area
-function displayStatusArea() {
-  let statusArea = document.getElementById("statusArea");
-  statusArea.textContent = "It is " + playerTurn + "'s turn!";
-}
+  //Updates the timer
+  function updateClock() {
+    clock.textContent = clockCount;
+    clockCount += 1;
+  }
 
-//Updates the timer
-function updateClock() {
-  clock.textContent = clockCount;
-  clockCount += 1;
-}
+  //Resets the Board
+  function boardReset() {
+    cells.forEach((cell) => {
+      cell.removeEventListener('click', clicked)
+      cell.removeEventListener('click', clickedBefore)
+    })
 
-//Resets the Board
-function boardReset() {
-  cells.forEach((cell) => {
-    cell.removeEventListener('click', clicked)
-    cell.removeEventListener('click', clickedBefore)
-  })
+    boardState = [false, false, false, false, false, false, false, false, false]
 
-  boardState = [false, false, false, false, false, false, false, false, false]
-
-  start.disabled = false;
-  start.textContent = 'Play Again!'
-  //We need to clear the time function
-  clockCount=0;
-} 
+    start.disabled = false;
+    start.textContent = 'Play Again!'
+  }
