@@ -2,6 +2,8 @@
 
 let playerOne = "X";
 let playerTwo = "O";
+let playerOneMoves=[];
+let playerTwoMoves=[];
 let playerTurn = playerOne;
 let wins = [
   [0, 1, 2],
@@ -29,11 +31,16 @@ let clock = document.getElementById("clock")
 
 //Need a function to count the moves of the players if 8 moves are counted and there is no winner, game results in a draw would need to add the count to an empty string to convert to an array
 function moves() {
-  for (i = 0; i < 8; i++) {
-    moveCounter += 1;
-    console.log(moveCounter);
+  moveCounter++ 
+  if(moveCounter < 9){
+    console.log(moveCounter)
+    //checkWin();
+  }else if(moveCounter =9){
+    statusArea.textContent=("It's a Draw");
+    boardReset();
   }
-}
+} 
+
   //Function to begin the game
   start.addEventListener("click", () => {
 
@@ -56,7 +63,8 @@ function moves() {
       playerTurn = playerTwo;
     } else playerTurn = playerOne;
     displayStatusArea();
-    moves() 
+    moves();
+    
 
   }
 
