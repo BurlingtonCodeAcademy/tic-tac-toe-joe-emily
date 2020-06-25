@@ -80,4 +80,6 @@ function boardReset() {
 
   start.disabled = false;
   start.textContent = 'Play Again!'
+  //We need to clear the time function
+  clockCount=0;
 } 
