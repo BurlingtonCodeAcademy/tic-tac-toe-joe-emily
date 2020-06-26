@@ -135,18 +135,18 @@ function gameSatisfied() {
   if (playerTurn === playerOne) {
     playerTurn = playerTwo
     statusArea.textContent = (playerTwoSelect + " has won! Play again?");
+    boardReset();
   } else if (playerTurn === playerTwo) {
     statusArea.textContent = (playerOneSelect + " has won! Play again?");
-
-
-
+    boardReset();
   };
-  boardReset();
+
 }
 
 //Function to begin the game. Listens for a start to the game. Displays whos turn it is. Begins the game timer. Adds listeners to each cell. 
 function startFunction() {
   start.addEventListener("click", () => {
+    clockCount = 0;
     console.log(playerOneSelect);
     playerOneSelect = document.getElementById("playerOne");
     console.log(playerOneSelect);
@@ -162,9 +162,13 @@ function startFunction() {
 
     start.disabled = true;
     displayStatusArea();
+
+
     interval = setInterval(() => {
       updateClock();
     }, 1000);
+
+
     cells.forEach((cell) => {
       cell.addEventListener("click", clicked);
     });
@@ -214,16 +218,21 @@ function boardReset() {
 
   start.disabled = false;
   start.textContent = "Play Again!";
-
-  start.addEventListener("click", () => {
-    removesEventListener();
-  });
-  console.log('about to reset players')
   moveCounter = 0;
+  start.addEventListener("click", removeEventListener);
+
+
+
 
   startFunction();
 }
 
+//Clears Timer Interval for the Next Game
+function myStopFunction() {
+  clearInterval(interval);
+}
+
+//Removes the Event Listeners from the Board
 function removesEventListener() {
   cells.forEach((cell) => {
     cell.textContent = "";
@@ -233,3 +242,8 @@ function removesEventListener() {
 }
 
 startFunction();
+
+
+//Bugs to fix
+//Need to draw line through winner and prevent extra clicks
+//Clock speeding up
