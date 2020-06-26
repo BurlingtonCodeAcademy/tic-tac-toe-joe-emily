@@ -131,9 +131,9 @@ function checkWin() {
 
 //A win has been satisfied. Alerts the game status area and resets the board
 function gameSatisfied() {
-  if (playerTurn===playerOne){
+  if (playerTurn === playerOne) {
     playerTurn = playerTwo
-  }else playerTurn =playerOne;
+  } else playerTurn = playerOne;
   statusArea.textContent = playerTurn + " has won! Play again?";
   boardReset();
 }
@@ -157,12 +157,12 @@ function clicked(event) {
   event.target.textContent = playerTurn;
   event.target.removeEventListener("click", clicked);
   event.target.addEventListener("click", clickedBefore);
- 
-    if (playerTurn === playerOne) {
-      playerTurn = playerTwo;
-    } else playerTurn = playerOne;
-    displayStatusArea();
-    moves();
+
+  if (playerTurn === playerOne) {
+    playerTurn = playerTwo;
+  } else playerTurn = playerOne;
+  displayStatusArea();
+  moves();
 }
 
 
