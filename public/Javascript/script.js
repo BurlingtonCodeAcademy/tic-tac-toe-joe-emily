@@ -1,21 +1,22 @@
+//Elements that need to be targeted
+let start = document.getElementById("start");
+let cells = Array.from(document.getElementsByClassName("cell"));
+let playerOneSelect = document.getElementById("playerOne");
+let playerTwoSelect = document.getElementById("playerTwo");
+let clock = document.getElementById("clock");
+
+
 //Global variable
 
 let playerOne = "X";
 let playerTwo = "O";
-let playerOneMoves = [];
-let playerTwoMoves = [];
 let playerTurn = playerOne;
 let interval;
 let clockCount = 0;
 let moveCounter = 0;
 
 
-//Elements that need to be targeted
-let start = document.getElementById("start");
-let cells = Array.from(document.getElementsByClassName("cell"));
-let playerOneName = document.getElementById("playerOne");
-let playerTwoName = document.getElementById("playerTwo");
-let clock = document.getElementById("clock");
+
 
 //Every move adds to the moves and checks for a win. If it is more than 8 moves, declares a draw.
 function moves() {
@@ -133,14 +134,32 @@ function checkWin() {
 function gameSatisfied() {
   if (playerTurn === playerOne) {
     playerTurn = playerTwo
-  } else playerTurn = playerOne;
-  statusArea.textContent = playerTurn + " has won! Play again?";
+    statusArea.textContent = (playerTwoSelect + " has won! Play again?");
+  } else if (playerTurn === playerTwo) {
+    statusArea.textContent = (playerOneSelect + " has won! Play again?");
+
+
+
+  };
   boardReset();
 }
 
-//Function to begin the game
+//Function to begin the game. Listens for a start to the game. Displays whos turn it is. Begins the game timer. Adds listeners to each cell. 
 function startFunction() {
   start.addEventListener("click", () => {
+    console.log(playerOneSelect);
+    playerOneSelect = document.getElementById("playerOne");
+    console.log(playerOneSelect);
+
+    playerTwoSelect = document.getElementById("playerTwo");
+    console.log(playerTwoSelect);
+
+    playerOneSelect = playerOneSelect.value;
+    playerTurn = playerOne;
+    playerTwoSelect = playerTwoSelect.value;
+    statusArea.textContent = playerOneSelect;
+
+
     start.disabled = true;
     displayStatusArea();
     interval = setInterval(() => {
@@ -160,7 +179,11 @@ function clicked(event) {
 
   if (playerTurn === playerOne) {
     playerTurn = playerTwo;
-  } else playerTurn = playerOne;
+    statusArea.textArea = playerTwoSelect;
+  } else if (playerTurn === playerTwo) {
+    playerTurn = playerOne;
+    statusArea.textArea = playerTwoSelect;
+  };
   displayStatusArea();
   moves();
 }
@@ -174,7 +197,10 @@ function clickedBefore() {
 //Function to display status area
 function displayStatusArea() {
   let statusArea = document.getElementById("statusArea");
-  statusArea.textContent = "It is " + playerTurn + "'s turn!";
+  if (playerTurn === playerOne) {
+    statusArea.textContent = "It is " + playerOneSelect + "'s turn!";
+  } else statusArea.textContent = "It is " + playerTwoSelect + "'s turn!";
+
 }
 
 //Updates the timer
@@ -185,20 +211,20 @@ function updateClock() {
 
 //Resets the Board
 function boardReset() {
-  boardState = [false, false, false, false, false, false, false, false, false];
 
   start.disabled = false;
   start.textContent = "Play Again!";
 
   start.addEventListener("click", () => {
-    removeEventListener();
+    removesEventListener();
   });
-  startFunction();
+  console.log('about to reset players')
   moveCounter = 0;
-  playerTurn = playerOne;
+
+  startFunction();
 }
 
-function removeEventListener() {
+function removesEventListener() {
   cells.forEach((cell) => {
     cell.textContent = "";
     cell.removeEventListener("click", clicked);
