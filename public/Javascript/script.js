@@ -143,37 +143,34 @@ function gameSatisfied() {
 
 }
 
-//Function to begin the game. Listens for a start to the game. Displays whos turn it is. Begins the game timer. Adds listeners to each cell. 
+//Function to begin the game. Listens for a start to the game. Displays whose turn it is. Begins the game timer. Adds listeners to each cell. 
 function startFunction() {
-  start.addEventListener("click", () => {
-    clockCount = 0;
-    console.log(playerOneSelect);
-    playerOneSelect = document.getElementById("playerOne");
-    console.log(playerOneSelect);
+  start.addEventListener("click", initializeButton)
+}
 
-    playerTwoSelect = document.getElementById("playerTwo");
-    console.log(playerTwoSelect);
-
-    playerOneSelect = playerOneSelect.value;
-    playerTurn = playerOne;
-    playerTwoSelect = playerTwoSelect.value;
-    statusArea.textContent = playerOneSelect;
-
-
-    start.disabled = true;
-    displayStatusArea();
+function initializeButton() {
+  //Variables for the function. 
+  clockCount = 0;
+  playerOneSelect = document.getElementById("playerOne");
+  playerTwoSelect = document.getElementById("playerTwo");
+  playerOneSelect = playerOneSelect.value;
+  playerTurn = playerOne;
+  playerTwoSelect = playerTwoSelect.value;
+  statusArea.textContent = playerOneSelect;
 
 
-    interval = setInterval(() => {
-      updateClock();
-    }, 1000);
+  start.disabled = true;
+  displayStatusArea();
 
+  //Sets the interval for the clock. 
+  interval = setInterval(updateClock, 1000);
 
-    cells.forEach((cell) => {
-      cell.addEventListener("click", clicked);
-    });
+  //Adds event listeners to each cells
+  cells.forEach((cell) => {
+    cell.addEventListener("click", clicked);
   });
 }
+
 
 //Function to add a mark to a cell when clicked
 function clicked(event) {
@@ -213,24 +210,18 @@ function updateClock() {
   clockCount += 1;
 }
 
-//Resets the Board
+//Resets the Board. Removes Event Listeners from the board
 function boardReset() {
 
   start.disabled = false;
   start.textContent = "Play Again!";
   moveCounter = 0;
-  start.addEventListener("click", removeEventListener);
-
-
-
-
+  removesEventListener();
+  start.removeEventListener("click", initializeButton);
+  clearInterval(interval);
   startFunction();
 }
 
-//Clears Timer Interval for the Next Game
-function myStopFunction() {
-  clearInterval(interval);
-}
 
 //Removes the Event Listeners from the Board
 function removesEventListener() {
@@ -246,4 +237,3 @@ startFunction();
 
 //Bugs to fix
 //Need to draw line through winner and prevent extra clicks
-//Clock speeding up
