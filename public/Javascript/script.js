@@ -86,7 +86,7 @@ function checkWin() {
   ) {
     gameSatisfied();
   } else if (
-    cellfour.textContent === "" &&
+    cellfour.textContent === "O" &&
     cellfive.textContent === "O" &&
     cellsix.textContent === "O"
   ) {
