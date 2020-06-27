@@ -135,13 +135,24 @@ function gameSatisfied() {
   if (playerTurn === playerOne) {
     playerTurn = playerTwo
     statusArea.textContent = (playerTwoSelect + " has won! Play again?");
-    boardReset();
+    removesEventListener();
+   boardReset();
   } else if (playerTurn === playerTwo) {
     statusArea.textContent = (playerOneSelect + " has won! Play again?");
+    removesEventListener();
     boardReset();
   };
 
 }
+
+//Function to stop from clicking on squares after a win
+function removesEventListener() {
+  cells.forEach((cell) => {
+    cell.removeEventListener("click", clicked);
+    cell.removeEventListener("click", clickedBefore);
+  });
+}
+
 
 //Function to begin the game. Listens for a start to the game. Displays whose turn it is. Begins the game timer. Adds listeners to each cell. 
 function startFunction() {
@@ -150,6 +161,8 @@ function startFunction() {
 
 function initializeButton() {
   //Variables for the function. 
+  clearBoard();
+  boardReset();
   clockCount = 0;
   playerOneSelect = document.getElementById("playerOne");
   playerTwoSelect = document.getElementById("playerTwo");
@@ -216,7 +229,7 @@ function boardReset() {
   start.disabled = false;
   start.textContent = "Play Again!";
   moveCounter = 0;
-  removesEventListener();
+
   start.removeEventListener("click", initializeButton);
   clearInterval(interval);
   startFunction();
@@ -226,9 +239,15 @@ function boardReset() {
 //Removes the Event Listeners from the Board
 function removesEventListener() {
   cells.forEach((cell) => {
-    cell.textContent = "";
     cell.removeEventListener("click", clicked);
     cell.removeEventListener("click", clickedBefore);
+  });
+}
+
+//Clears Board after click
+function clearBoard() {
+  cells.forEach((cell) => {
+    cell.textContent = ""
   });
 }
 
@@ -236,4 +255,3 @@ startFunction();
 
 
 //Bugs to fix
-//Need to draw line through winner and prevent extra clicks
