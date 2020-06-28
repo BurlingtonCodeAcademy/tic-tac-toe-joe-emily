@@ -1,21 +1,24 @@
+/*when game is done single player vs A.I does not re-enable?
+background colors do not reset!
+tie game doesn't register
+*/
 //Elements that need to be targeted
 let start = document.getElementById("start");
 let cells = Array.from(document.getElementsByClassName("cell"));
 let playerOneSelect = document.getElementById("playerOne");
 let playerTwoSelect = document.getElementById("playerTwo");
 let clock = document.getElementById("clock");
-let compGuess = document.getElementById('computerPlayer');
+let computerButton = document.getElementById('computerPlayer');
 
 //Global variable
 
 let playerOne = "X";
 let playerTwo = "O";
-let compGuess = "O";
 let playerTurn = playerOne;
 let interval;
 let clockCount = 0;
 let moveCounter = 0;
-
+let AI = false;
 
 
 
@@ -178,22 +181,27 @@ function markWin(squares) {
 }
 //also need to implement full A.I Function
 // Computer Player basic A.I
-/*function compGuess() {
-  checkWin = Math.floor(Math.random() * 8);
+function compGuess() {
+  let selectCell = Math.floor(Math.random() * 9);
 
-  if (cells[checkWin].textContent === '') {
-    cells[checkWin].textContent = 'O';
-  
+  if (cells[selectCell].textContent === '') {
+    return cells[selectCell].click();
   } else {
-   return compGuess();
+    return compGuess();
   }
-}*/
+}
 
 //Function to begin the game. Listens for a start to the game. Displays whose turn it is. Begins the game timer. Adds listeners to each cell. 
 function startFunction() {
   start.addEventListener("click", initializeButton)
+  computerButton.addEventListener("click",
+    initializeButton)
+  computerButton.addEventListener("click", setAi)
 }
 
+function setAi() {
+  AI = true
+}
 
 function initializeButton() {
   //Variables for the function. 
@@ -209,6 +217,7 @@ function initializeButton() {
 
 
   start.disabled = true;
+  computerButton.disabled = true;
   displayStatusArea();
 
   //Sets the interval for the clock. 
@@ -226,12 +235,18 @@ function clicked(event) {
   event.target.textContent = playerTurn;
   event.target.removeEventListener("click", clicked);
   event.target.addEventListener("click", clickedBefore);
+  if (playerTurn === playerTwo) {
+    (playerTurn = playerOne)
+  } else {
+    (playerTurn = playerTwo)
+  }
 
   if (playerTurn === playerOne) {
-    playerTurn = playerTwo;
     statusArea.textArea = playerTwoSelect;
+  } else if (playerTurn === playerTwo && AI === true) {
+    compGuess();
+    statusArea.textArea = playerOneSelect;
   } else if (playerTurn === playerTwo) {
-    playerTurn = playerOne;
     statusArea.textArea = playerTwoSelect;
   };
 
