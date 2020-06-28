@@ -8,7 +8,6 @@ let playerOneSelect = document.getElementById("playerOne");
 let playerTwoSelect = document.getElementById("playerTwo");
 let clock = document.getElementById("clock");
 let computerButton = document.getElementById('computerPlayer');
-
 //Global variable
 
 let playerOne = "X";
@@ -289,7 +288,6 @@ function boardReset() {
   startFunction();
 }
 
-
 //Removes the Event Listeners from the Board
 function removesEventListener() {
   cells.forEach((cell) => {
@@ -302,14 +300,11 @@ function removesEventListener() {
 function removeMark() {
   cells.forEach((cell) => {
     cell.textContent = ""
+    
   });
 }
 
-function removeMarkWin() {
-  square.foreach((square) => {
-    square.style.backgroundColor = null;
-  })
-}
+
 
 
 startFunction();
