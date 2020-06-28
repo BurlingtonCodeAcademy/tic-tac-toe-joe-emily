@@ -1,5 +1,4 @@
-/*when game is done single player vs A.I does not re-enable?
-background colors do not reset!
+/*background colors do not reset!
 tie game doesn't register
 */
 //Elements that need to be targeted
@@ -199,6 +198,7 @@ function startFunction() {
   computerButton.addEventListener("click", setAi)
 }
 
+//Initializes the AI for the Event Listener
 function setAi() {
   AI = true
 }
@@ -279,8 +279,10 @@ function updateClock() {
 //Resets the Board. Removes Event Listeners from the board
 function boardReset() {
 
-  start.disabled = false;
-  start.textContent = "Play Again!";
+  start.disabled = false
+  start.textContent = "Play Again Two PLayer!"
+  computerButton.disabled = false;
+  computerButton.textContent = "Play Again One Player!";
   moveCounter = 0;
 
   start.removeEventListener("click", initializeButton);
@@ -303,5 +305,6 @@ function removeMark() {
     cell.textContent = ""
   });
 }
+
 
 startFunction();
