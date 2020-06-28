@@ -1,58 +1,54 @@
-
 /* Game Board */
 
-h1{
+h1 {
     text-align: center
 }
-h2{
+
+h2 {
     text-align: center;
 }
-#playerTurn{
+
+#playerTurn {
+    background-color: lightgrey;
+    height: 100px;
     margin: auto;
     width: 200px;
-    height: 100px;
-    background-color: lightgrey;
 }
 
-#top{
+#top {
     display: flex;
     width: 90vw;
-  
+
 }
 
-#middle{
+#middle {
     display: flex;
     width: 90vw;
-    
+
 }
 
-#bottom{
+#bottom {
     display: flex;
     width: 90vw;
-   
+
 }
 
-.cell{
-    min-width: 30vw;
-    height: 20vh;
-}
-
-#cellone{
+#cellone {
     border-bottom: 1px solid black;
     border-right: 1px solid black;
 }
 
-#celltwo{
+#celltwo {
     border-bottom: 1px solid black;
     border-right: 1px solid black;
-  
+
 }
 
-#cellthree{
+#cellthree {
     border-bottom: 1px solid black;
 }
 
-#cellfour{
+#cellfour {
     border-bottom: 1px solid black;
     border-right: 1px solid black;
 }
@@ -62,30 +58,55 @@ h2{
     border-right: 1px solid black;
 }
 
-#cellsix{
+#cellsix {
     border-bottom: 1px solid black;
 }
 
-#cellseven{
+#cellseven {
     border-right: 1px solid black;
 }
 
-#celleight{
+#celleight {
     border-right: 1px solid black;
 }
 
-#buttonContainer{
-    width: 10%;
+#buttonContainer {
     margin-left: 40%;
     margin-right: 45%;
     padding: 20px;
+    width: 10%;
 }
 
-.cell{
-    font-size: 32px;
-    font-family: fantasy;
-    color: black;
-    display: flex;
+#start {
+    cursor: pointer;
+
+}
+
+#start:hover {
+    background-color: rgb(134, 134, 240);
+}
+
+#computerPlayer {
+    cursor: pointer;
+}
+
+#computerPLayer:hover {
+    background-color: rgb(134, 134, 240);
+    ;
+}
+
+.cell {
     align-items: center;
+    color: black;
+    cursor: pointer;
+    display: flex;
+    font-family: fantasy;
+    font-size: 60px;
+    height: 20vh;
     justify-content: center;
+    min-width: 30vw;
+}
+
+.cell:hover {
+    background-color: red;
 }

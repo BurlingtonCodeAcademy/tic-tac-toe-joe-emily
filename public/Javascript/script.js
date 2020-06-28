@@ -4,7 +4,7 @@ let cells = Array.from(document.getElementsByClassName("cell"));
 let playerOneSelect = document.getElementById("playerOne");
 let playerTwoSelect = document.getElementById("playerTwo");
 let clock = document.getElementById("clock");
-
+let comGuess = document.getElementById('computerPlayer');
 
 //Global variable
 
@@ -20,9 +20,9 @@ let moveCounter = 0;
 
 //Every move adds to the moves and checks for a win. If it is more than 8 moves, declares a draw.
 function moves() {
-  if (moveCounter < 9) {
+  if (moveCounter < 8) {
     checkWin();
-  } else if ((moveCounter = 9)) {
+  } else if ((moveCounter = 8)) {
     statusArea.textContent = "It's a Draw";
     boardReset();
   }
@@ -136,7 +136,7 @@ function gameSatisfied() {
     playerTurn = playerTwo
     statusArea.textContent = (playerTwoSelect + " has won! Play again?");
     removesEventListener();
-   boardReset();
+    boardReset();
   } else if (playerTurn === playerTwo) {
     statusArea.textContent = (playerOneSelect + " has won! Play again?");
     removesEventListener();
@@ -152,16 +152,35 @@ function removesEventListener() {
     cell.removeEventListener("click", clickedBefore);
   });
 }
+//need To get checkwin function implemented
+/* function markWin(checkWin) {
+  for (let cell of moves) {
+    cell.style.backgroundColor = 'red';
+    cell.style.border = '5px solid black'
+  }
+}
+//also need to implement full A.I Function
+// Computer Player basic A.I
+function compGuess() {
+  checkWin = Math.floor(Math.random() * 8);
 
+  if (cells[checkWin].textContent === '') {
+    cells[checkWin].textContent = 'O';
+    move = move + 1;
+  } else {
+    compGuess();
+  }
+} */
 
 //Function to begin the game. Listens for a start to the game. Displays whose turn it is. Begins the game timer. Adds listeners to each cell. 
 function startFunction() {
   start.addEventListener("click", initializeButton)
 }
 
+
 function initializeButton() {
   //Variables for the function. 
-  clearBoard();
+  removeMark();
   boardReset();
   clockCount = 0;
   playerOneSelect = document.getElementById("playerOne");
@@ -198,6 +217,7 @@ function clicked(event) {
     playerTurn = playerOne;
     statusArea.textArea = playerTwoSelect;
   };
+
   displayStatusArea();
   moves();
 }
@@ -245,13 +265,10 @@ function removesEventListener() {
 }
 
 //Clears Board after click
-function clearBoard() {
+function removeMark() {
   cells.forEach((cell) => {
     cell.textContent = ""
   });
 }
 
 startFunction();
-
-
-//Bugs to fix
