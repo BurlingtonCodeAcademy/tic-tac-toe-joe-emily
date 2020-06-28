@@ -250,7 +250,6 @@ function clicked(event) {
     statusArea.textArea = playerTwoSelect;
   };
 
-
   displayStatusArea();
   moves();
 }
@@ -304,6 +303,12 @@ function removeMark() {
   cells.forEach((cell) => {
     cell.textContent = ""
   });
+}
+
+function removeMarkWin() {
+  square.foreach((square) => {
+    square.style.backgroundColor = null;
+  })
 }
 
 
