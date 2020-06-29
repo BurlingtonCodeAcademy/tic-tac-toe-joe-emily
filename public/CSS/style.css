@@ -1,7 +1,10 @@
 /* Game Board */
 
 h1 {
-    text-align: center
+
+    text-align: center;
+    color: darkblue;
+    text-decoration: underline
 }
 
 h2 {
@@ -10,6 +13,7 @@ h2 {
 
 #playerTurn {
     background-color: lightgrey;
+    color: red;
     height: 100px;
     margin: auto;
     width: 200px;
@@ -33,45 +37,45 @@ h2 {
 
 }
 
-#cellone {
-    border-bottom: 1px solid black;
-    border-right: 1px solid black;
+#cellOne {
+    border-bottom: 3px solid black;
+    border-right: 3px solid black;
 }
 
-#celltwo {
-    border-bottom: 1px solid black;
-    border-right: 1px solid black;
+#cellTwo {
+    border-bottom: 3px solid black;
+    border-right: 3px solid black;
 
 }
 
-#cellthree {
-    border-bottom: 1px solid black;
+#cellThree {
+    border-bottom: 3px solid black;
 }
 
-#cellfour {
-    border-bottom: 1px solid black;
-    border-right: 1px solid black;
+#cellFour {
+    border-bottom: 3px solid black;
+    border-right: 3px solid black;
 }
 
-#cellfive {
-    border-bottom: 1px solid black;
-    border-right: 1px solid black;
+#cellFive {
+    border-bottom: 3px solid black;
+    border-right: 3px solid black;
 }
 
-#cellsix {
-    border-bottom: 1px solid black;
+#cellSix {
+    border-bottom: 3px solid black;
 }
 
-#cellseven {
-    border-right: 1px solid black;
+#cellSeven {
+    border-right: 3px solid black;
 }
 
-#celleight {
-    border-right: 1px solid black;
+#cellEight {
+    border-right: 3px solid black;
 }
 
 #buttonContainer {
-    
+
     margin-left: 40%;
     margin-right: 45%;
     padding: 10px;
@@ -80,7 +84,6 @@ h2 {
 
 #start {
     cursor: pointer;
-
 }
 
 #start:hover {
@@ -109,5 +112,5 @@ h2 {
 }
 
 .cell:hover {
-    background-color: red;
+    background-color: blue;
 }

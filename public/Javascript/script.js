@@ -34,117 +34,117 @@ function moves() {
 //Function that checks whether or not there is a win
 function checkWin() {
   if (
-    cellone.textContent === "X" &&
-    celltwo.textContent === "X" &&
-    cellthree.textContent === "X"
+    cellOne.textContent === "X" &&
+    cellTwo.textContent === "X" &&
+    cellThree.textContent === "X"
   ) {
     gameSatisfied();
-    markWin([cellone, celltwo, cellthree])
+    markWin([cellOne, cellTwo, cellThree])
   } else if (
-    cellfour.textContent === "X" &&
-    cellfive.textContent === "X" &&
-    cellsix.textContent === "X"
+    cellFour.textContent === "X" &&
+    cellFive.textContent === "X" &&
+    cellSix.textContent === "X"
   ) {
     gameSatisfied();
-    markWin([cellfour, cellfive, cellsix])
+    markWin([cellFour, cellFive, cellSix])
   } else if (
-    cellseven.textContent === "X" &&
-    celleight.textContent === "X" &&
-    cellnine.textContent === "X"
+    cellSeven.textContent === "X" &&
+    cellEight.textContent === "X" &&
+    cellNine.textContent === "X"
   ) {
     gameSatisfied();
-    markWin([cellseven, celleight, cellnine])
+    markWin([cellSeven, cellEight, cellNine])
   } else if (
-    cellone.textContent === "X" &&
-    cellfour.textContent === "X" &&
-    cellseven.textContent === "X"
+    cellOne.textContent === "X" &&
+    cellFour.textContent === "X" &&
+    cellSeven.textContent === "X"
   ) {
     gameSatisfied();
-    markWin([cellone, cellfour, cellseven])
+    markWin([cellOne, cellFour, cellSeven])
   } else if (
-    celltwo.textContent === "X" &&
-    cellfive.textContent === "X" &&
-    celleight.textContent === "X"
+    cellTwo.textContent === "X" &&
+    cellFive.textContent === "X" &&
+    cellEight.textContent === "X"
   ) {
     gameSatisfied();
-    markWin([celltwo, cellfive, celleight])
+    markWin([cellTwo, cellFive, cellEight])
   } else if (
-    cellthree.textContent === "X" &&
-    cellsix.textContent === "X" &&
-    cellnine.textContent === "X"
+    cellThree.textContent === "X" &&
+    cellSix.textContent === "X" &&
+    cellNine.textContent === "X"
   ) {
     gameSatisfied();
-    markWin([cellthree, cellsix, cellnine])
+    markWin([cellThree, cellSix, cellNine])
   } else if (
-    cellone.textContent === "X" &&
-    cellfive.textContent === "X" &&
-    cellnine.textContent === "X"
+    cellOne.textContent === "X" &&
+    cellFive.textContent === "X" &&
+    cellNine.textContent === "X"
   ) {
     gameSatisfied();
-    markWin([cellone, cellfive, cellnine])
+    markWin([cellOne, cellFive, cellNine])
   } else if (
-    cellthree.textContent === "X" &&
-    cellfive.textContent === "X" &&
-    cellseven.textContent === "X"
+    cellThree.textContent === "X" &&
+    cellFive.textContent === "X" &&
+    cellSeven.textContent === "X"
   ) {
     gameSatisfied();
-    markWin([cellthree, cellfive, cellseven])
+    markWin([cellThree, cellFive, cellSeven])
   } else if (
-    cellone.textContent === "O" &&
-    celltwo.textContent === "O" &&
-    cellthree.textContent === "O"
+    cellOne.textContent === "O" &&
+    cellTwo.textContent === "O" &&
+    cellThree.textContent === "O"
   ) {
     gameSatisfied();
-    markWin([cellone, celltwo, cellthree])
+    markWin([cellOne, cellTwo, cellThree])
   } else if (
-    cellfour.textContent === "O" &&
-    cellfive.textContent === "O" &&
-    cellsix.textContent === "O"
+    cellFour.textContent === "O" &&
+    cellFive.textContent === "O" &&
+    cellSix.textContent === "O"
   ) {
     gameSatisfied();
-    markWin([cellfour, cellfive, cellsix])
+    markWin([cellFour, cellFive, cellSix])
   } else if (
-    cellseven.textContent === "O" &&
-    celleight.textContent === "O" &&
-    cellnine.textContent === "O"
+    cellSeven.textContent === "O" &&
+    cellEight.textContent === "O" &&
+    cellNine.textContent === "O"
   ) {
     gameSatisfied();
-    markWin([cellseven, celleight, cellnine])
+    markWin([cellSeven, cellEight, cellNine])
   } else if (
-    cellone.textContent === "O" &&
-    cellfour.textContent === "O" &&
-    cellseven.textContent === "O"
+    cellOne.textContent === "O" &&
+    cellFour.textContent === "O" &&
+    cellSeven.textContent === "O"
   ) {
     gameSatisfied();
-    markWin([cellone, cellfour, cellseven])
+    markWin([cellOne, cellFour, cellSeven])
   } else if (
-    celltwo.textContent === "O" &&
-    cellfive.textContent === "O" &&
-    celleight.textContent === "O"
+    cellTwo.textContent === "O" &&
+    cellFive.textContent === "O" &&
+    cellEight.textContent === "O"
   ) {
     gameSatisfied();
-    markWin([celltwo, cellfive, celleight])
+    markWin([cellTwo, cellFive, cellEight])
   } else if (
-    cellthree.textContent === "O" &&
-    cellsix.textContent === "O" &&
-    cellnine.textContent === "O"
+    cellThree.textContent === "O" &&
+    cellSix.textContent === "O" &&
+    cellNine.textContent === "O"
   ) {
     gameSatisfied();
-    markWin([cellthree, cellsix, cellnine])
+    markWin([cellThree, cellSix, cellNine])
   } else if (
-    cellone.textContent === "O" &&
-    cellfive.textContent === "O" &&
-    cellnine.textContent === "O"
+    cellOne.textContent === "O" &&
+    cellFive.textContent === "O" &&
+    cellNine.textContent === "O"
   ) {
     gameSatisfied();
-    markWin([cellone, cellfive, cellnine])
+    markWin([cellOne, cellFive, cellNine])
   } else if (
-    cellthree.textContent === "O" &&
-    cellfive.textContent === "O" &&
-    cellseven.textContent === "O"
+    cellThree.textContent === "O" &&
+    cellFive.textContent === "O" &&
+    cellSeven.textContent === "O"
   ) {
     gameSatisfied();
-    markWin([cellthree, cellfive, cellseven])
+    markWin([cellThree, cellFive, cellSeven])
 
   }
 }
@@ -177,6 +177,7 @@ function markWin(squares) {
     square.style.backgroundColor = 'red';
   }
 }
+
 //also need to implement full A.I Function
 // Computer Player basic A.I
 function compGuess() {
@@ -213,7 +214,6 @@ function initializeButton() {
   playerTurn = playerOne;
   playerTwoSelect = playerTwoSelect.value;
   statusArea.textContent = playerOneSelect;
-
 
   start.disabled = true;
   computerButton.disabled = true;
@@ -283,6 +283,7 @@ function boardReset() {
   computerButton.textContent = "Play Again One Player!";
   moveCounter = 0;
 
+
   start.removeEventListener("click", initializeButton);
   clearInterval(interval);
   startFunction();
@@ -300,10 +301,9 @@ function removesEventListener() {
 function removeMark() {
   cells.forEach((cell) => {
     cell.textContent = ""
-    
+
   });
 }
-
 
 
 
