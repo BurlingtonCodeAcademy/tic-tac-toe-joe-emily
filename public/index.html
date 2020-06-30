@@ -1,0 +1,58 @@
+<!DOCTYPE h.tml>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" type="text/css" href="CSS/style.css">
+
+</head>
+
+<body>
+  <!--These divs create the board-->
+  <h1>Tic Tac Toe!</h1>
+  <div id='board'>
+    <div id="playerTurn">
+      <h2>Player Turn:</h2>
+      <h2 id="statusArea"></h2>
+    </div>
+    <h3> The Game has Elapsed (In Seconds): </h3>
+    <h3 id="clock"></h3>
+    <br>
+    <div id="top">
+      <div id="cellOne" class='cell'></div>
+      <div id="cellTwo" class='cell'></div>
+      <div id="cellThree" class='cell'></div>
+    </div>
+
+    <div id="middle">
+      <div id="cellFour" class='cell'></div>
+      <div id="cellFive" class='cell'></div>
+      <div id="cellSix" class='cell'></div>
+    </div>
+    <div id="bottom">
+      <div id="cellSeven" class='cell'></div>
+      <div id="cellEight" class='cell'></div>
+      <div id="cellNine" class='cell'></div>
+    </div>
+  </div>
+
+  <div id="buttonContainer">
+    <div id="playerName">
+      <form id="form">
+        <h4> Player One Name</h4>
+        <input id="playerOne" type="text">
+        <h4> Player Two Name</h4>
+        <input id="playerTwo" type="text">
+      </form>
+    </div>
+    <button id='start'> Two Player Start </button>
+    <button id='computerPlayer'> One Player Start </button>
+
+  </div>
+
+  <script type="text/javascript" src="Javascript/script.js"></script>
+</body>
+
+</html>

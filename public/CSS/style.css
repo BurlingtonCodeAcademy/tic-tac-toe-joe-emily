@@ -1,0 +1,116 @@
+/* Game Board */
+
+h1 {
+
+    text-align: center;
+    color: darkblue;
+    text-decoration: underline
+}
+
+h2 {
+    text-align: center;
+}
+
+#playerTurn {
+    background-color: lightgrey;
+    color: red;
+    height: 100px;
+    margin: auto;
+    width: 200px;
+}
+
+#top {
+    display: flex;
+    width: 90vw;
+
+}
+
+#middle {
+    display: flex;
+    width: 90vw;
+
+}
+
+#bottom {
+    display: flex;
+    width: 90vw;
+
+}
+
+#cellOne {
+    border-bottom: 3px solid black;
+    border-right: 3px solid black;
+}
+
+#cellTwo {
+    border-bottom: 3px solid black;
+    border-right: 3px solid black;
+
+}
+
+#cellThree {
+    border-bottom: 3px solid black;
+}
+
+#cellFour {
+    border-bottom: 3px solid black;
+    border-right: 3px solid black;
+}
+
+#cellFive {
+    border-bottom: 3px solid black;
+    border-right: 3px solid black;
+}
+
+#cellSix {
+    border-bottom: 3px solid black;
+}
+
+#cellSeven {
+    border-right: 3px solid black;
+}
+
+#cellEight {
+    border-right: 3px solid black;
+}
+
+#buttonContainer {
+
+    margin-left: 40%;
+    margin-right: 45%;
+    padding: 10px;
+    width: 30%;
+}
+
+#start {
+    cursor: pointer;
+}
+
+#start:hover {
+    background-color: rgb(134, 134, 240);
+}
+
+#computerPlayer {
+    cursor: pointer;
+}
+
+#computerPLayer:hover {
+    background-color: rgb(134, 134, 240);
+    ;
+}
+
+.cell {
+    align-items: center;
+    color: black;
+    cursor: pointer;
+    display: flex;
+    font-family: fantasy;
+    font-size: 60px;
+    height: 20vh;
+    justify-content: center;
+    min-width: 30vw;
+}
+
+.cell:hover {
+    background-color: blue;
+}
