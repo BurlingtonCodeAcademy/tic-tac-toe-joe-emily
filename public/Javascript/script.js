@@ -1,6 +1,6 @@
-/*background colors do not reset!
-tie game doesn't register
-*/
+
+//tie game doesn't register
+
 //Elements that need to be targeted
 let start = document.getElementById("start");
 let cells = Array.from(document.getElementsByClassName("cell"));
@@ -24,7 +24,7 @@ let AI = false;
 function moves() {
   if (moveCounter < 8) {
     checkWin();
-  } else if ((moveCounter = 8)) {
+  } else if ((moveCounter === 8)) {
     statusArea.textContent = "It's a Draw";
     boardReset();
   }
@@ -176,7 +176,9 @@ function markWin(squares) {
   for (let square of squares) {
     square.style.backgroundColor = 'red';
   }
+
 }
+
 
 //also need to implement full A.I Function
 // Computer Player basic A.I
@@ -205,8 +207,10 @@ function setAi() {
 
 function initializeButton() {
   //Variables for the function. 
+
   removeMark();
   boardReset();
+
   clockCount = 0;
   playerOneSelect = document.getElementById("playerOne");
   playerTwoSelect = document.getElementById("playerTwo");
@@ -301,7 +305,7 @@ function removesEventListener() {
 function removeMark() {
   cells.forEach((cell) => {
     cell.textContent = ""
-
+    cell.removeAttribute("style")
   });
 }
 
